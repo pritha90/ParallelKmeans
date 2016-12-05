@@ -1,0 +1,11 @@
+#!/bin/bash
+#SBATCH -p gpu
+#SBATCH --gres=gpu:4
+#SBATCH --nodes=4
+
+#SBATCH --job-name="cuda-demo"
+#SBATCH --output="gpucuda%j.%N.out"
+#SBATCH -t 03:30:00
+#cd ~/home/$USER/lanliu/CS240Fall16/Finalproject
+#nvprof --print-gpu-trace ./test_driver --benchmark -numdevices=1 -i=1
+nvprof ./test_driver
