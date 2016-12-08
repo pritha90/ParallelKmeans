@@ -1,0 +1,13 @@
+Complexity of sequential K-Means algorithm: O(N*D*K*T)
+N: # of datas.
+D: # of dimension.
+K: # of clusters.
+T: # of iterations.
+
+Complexity of each iteration step:
+
+Part1: for each data point, compute the distance with K cluster centers and assign to the nearest one.  O(N*D*K)                                  
+Parallelize on CUDA (SIMD: single instruction multiple data)
+
+Part2: compute the new center as mean of new cluster datas. O((N+K)*D)--> O((2*delta+K)*D)
+delta: #of membership change.
